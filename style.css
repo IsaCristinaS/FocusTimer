@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --color-bg: white;
+    --controls-on:hsl(311, 97%, 31%);
+    --controls-off: hsl(240, 2%, 8%);
+    --tx-color-and-icons: hsl(240, 6%, 21%);
+
+    font-size: clamp(40%, 1% + 2vw, 62.5%);
+    background-color: var(--color-bg);
+}
+
+html.dark {
+    --tx-color-and-icons: white;
+    --controls-off: hsl(240, 9%, 89%);
+    --color-bg: hsl(240, 6%, 21%);
+}
+
+#toggle-mode{
+    position: absolute;
+    right: 3.2rem;
+    top: 3.2rem;
+    font-size: 3.2rem;
+    line-height: 0;
+    border: none;
+    cursor: pointer;
+    
+    color: var(--controls-on);
+    background-color: var(--color-bg) ;
+}
+
+.sr-only{
+    width: 1px;
+    height: 1px;
+    position: absolute;
+    overflow: hidden;
+    
+    margin: -1px;
+    padding: 0px;
+    border: 0;
+    appearance: none;
+}
+
+body{
+    display: grid;
+    place-content: center;
+    
+}
+
+#app{
+    height: 100vh;
+    gap: 10rem;
+   
+    display: flex;
+    justify-content: space-between;
+    
+    color: var(--controls-off);
+    align-items: center;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#timer{
+    font-size: 12rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+}
+
+#minutes{
+    width: 14rem;
+}
+
+[contenteditable] {
+    outline: 0px solid transparent;
+  }
+
+#controls {
+    justify-content: space-around;
+}
+
+#controls button{
+    font-size: 5rem;
+    border: none;
+    cursor: pointer;
+    
+    background-color: var(--color-bg);
+    color: var(--controls-off);
+}
+
+#toggleMusic{
+    display: flex;
+    flex-wrap: wrap;
+    height: 35rem;
+    width: 35rem;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+#toggleMusic button{
+    font-size: 6rem;
+    padding: 5rem;
+    border-radius: 10%;
+    cursor: pointer;
+    border: none;
+}
+
+.ph-sun{
+    color: var(--controls-off);
+}
+
+/*toggle background*/
+html.dark .ph-moon,
+html:not(.dark) .ph-sun{
+    display: none;
+}
+
+/* controls */
+.running .ph-play-circle,
+.running .ph-timer,
+html:not(.running) .ph-pause-circle,
+html:not(.running) .ph-stop-circle {
+    display:none
+}
+
+/* music-on */
+.music-on-tree .ph-tree,
+.music-on-rain .ph-cloud-snow,
+.music-on-cafeteria .ph-storefront,
+.music-on-fire .ph-fire-simple{
+    background-color: var(--controls-on);
+    color: aliceblue;
+}
+
+
+@media (max-width:700px) {
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    #app{
+        height: 100%;
+        flex-direction: column;  
+        gap: 0;
+    }
+
+    #main{
+        padding: 8rem;
+    }
+
+    #controls{
+        width: 30rem;
+    }
+
+}
